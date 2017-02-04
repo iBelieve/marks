@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
-import { Link } from 'react-router-dom'
 import Icon from './Icon'
-import { colors, fonts } from '../styles'
+import { fonts } from '../styles'
 
 const styles = ({ disabled }) => css`
   display: inline-flex;
@@ -31,7 +30,6 @@ const styles = ({ disabled }) => css`
   }
 `
 
-const StyledLink = styled(Link)`${styles}`
 const Anchor = styled.a`${styles}`
 const StyledButton = styled.button`${styles}`
 
@@ -47,7 +45,7 @@ StyledIcon.propTypes = {
 
 // Main component
 const AbstractButton = ({ icon, children, ...props }) => {
-  const Element = props.to ? StyledLink : props.href ? Anchor : StyledButton
+  const Element = props.href ? Anchor : StyledButton
 
   return (
     <Element {...props}>
@@ -60,7 +58,6 @@ const AbstractButton = ({ icon, children, ...props }) => {
 AbstractButton.propTypes = {
   disabled: PropTypes.bool,
   type: PropTypes.string,
-  to: PropTypes.string,
   href: PropTypes.string,
   icon: PropTypes.string,
   children: PropTypes.node

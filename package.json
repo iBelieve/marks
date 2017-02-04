@@ -47,7 +47,6 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-hot-loader": "next",
-    "react-router-dom": "next",
     "styled-components": "^1.4.3"
   }
 }
