@@ -1,13 +1,22 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
+import App from './App'
+import './global.css'
 
-ReactDOM.render(
-  <div>
-    <h1>Hello, world!</h1>
-    {/* All of the Node.js APIs are available in this renderer process.*/}
-    We are using Node.js {process.versions.node},
-    Chromium {process.versions.chrome},
-    and Electron {process.versions.electron}.
-  </div>,
-  document.getElementById('root')
+const root = document.getElementById('app')
+
+const renderApp = () => (
+  <AppContainer>
+    <App/>
+  </AppContainer>
 )
+
+render(renderApp(), root)
+
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    require('./App')
+    render(renderApp(), root)
+  })
+}

@@ -3,11 +3,18 @@ env:
   es6: true
   node: true
 extends: airbnb
+parser: babel-eslint
 plugins:
   - react
   - jsx-a11y
   - import
 rules:
   react/jsx-filename-extension: off
+  react/jsx-space-before-closing: [error, never]
+  react/jsx-tag-spacing:
+    - error
+    - closingSlash: never
+      beforeSelfClosing: never
+      afterOpening: never
   comma-dangle: [error, never]
   semi: [error, never]

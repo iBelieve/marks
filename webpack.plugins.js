@@ -10,20 +10,27 @@ exports.basePlugins = [
   new webpack.optimize.CommonsChunkPlugin({
     name: 'vendor',
     minChunks: isVendor,
-  })
+  }),
+  new webpack.NamedModulesPlugin()
 ]
 
 exports.developmentPlugins = [
   new HtmlWebpackPlugin({
-    template: './public/index.html',
-    inject: true
+    inject: false,
+    template: require('html-webpack-template'),
+    title: 'Marks',
+    appMountId: 'app',
+    mobile: true
   })
 ]
 
 exports.productionPlugins = [
   new HtmlWebpackPlugin({
-    template: './public/index.html',
-    inject: true,
+    inject: false,
+    template: require('html-webpack-template'),
+    title: 'Marks',
+    appMountId: 'app',
+    mobile: true,
     minify: {
       removeComments: true,
       collapseWhitespace: true,

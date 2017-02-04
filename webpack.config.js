@@ -8,7 +8,7 @@ const autoprefixer = require('autoprefixer')
 const plugins = require('./webpack.plugins')
 
 module.exports = createConfig([
-  entryPoint('./src/index.js'),
+  entryPoint(['react-hot-loader/patch', './src/index.js']),
   customConfig({ target: 'electron-renderer' }),
   babel(),
   postcss([
@@ -20,7 +20,7 @@ module.exports = createConfig([
   }),
   env('development', [
     setOutput('./dist/[name].bundle.js'),
-    devServer({ contentBase: './public', port: parseInt(process.env.PORT, 10) }),
+    devServer({ port: parseInt(process.env.PORT, 10) }),
     sourceMaps(),
     addPlugins(plugins.developmentPlugins)
   ]),

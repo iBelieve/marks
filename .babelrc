@@ -1,11 +1,15 @@
 {
   "presets": [
-    "react",
     ["env", {
       "targets": {
         "electron": "1.4"
       },
       "useBuiltIns": true
-    }]
+    }],
+    "react"
+  ],
+  "plugins": [
+    "transform-export-extensions",
+    "react-hot-loader/babel"
   ]
 }
