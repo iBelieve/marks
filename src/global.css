@@ -1,4 +1,6 @@
 html, body, #app {
   margin: 0;
   height: 100%;
+  text: rgba(0, 0, 0, 0.85);
+  background-color: #fbfcfc;
 }

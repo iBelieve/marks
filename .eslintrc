@@ -18,3 +18,4 @@ rules:
       afterOpening: never
   comma-dangle: [error, never]
   semi: [error, never]
+  no-else-return: off
