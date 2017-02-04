@@ -14,6 +14,7 @@ const styles = ({ disabled }) => css`
   box-sizing: border-box;
   appearance: none;
   border-style: none;
+  cursor: default;
 
   transition: all 0.25;
 
