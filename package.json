@@ -1,0 +1,32 @@
+{
+  "name": "marks",
+  "version": "0.0.1",
+  "description": "Markdown notebook",
+  "main": "main.js",
+  "repository": "iBelieve/marks",
+  "author": "Michael Spencer <sonrisesoftware@gmail.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "nf start",
+    "dev": "webpack-dev-server",
+    "electron": "electron .",
+    "prebuild": "rimraf dist/",
+    "build": "webpack --progress"
+  },
+  "devDependencies": {
+    "@webpack-blocks/babel6": "^0.4.0",
+    "@webpack-blocks/dev-server2": "^0.4.0",
+    "@webpack-blocks/extract-text2": "^0.4.0",
+    "@webpack-blocks/postcss": "^0.4.0",
+    "@webpack-blocks/webpack2": "^0.4.0",
+    "autoprefixer": "^6.7.2",
+    "babel-core": "^6.22.1",
+    "babel-preset-env": "^1.1.8",
+    "electron": "^1.4.15",
+    "foreman": "^2.0.0",
+    "html-webpack-plugin": "^2.28.0",
+    "rimraf": "^2.5.4",
+    "webpack": "^2.2.0",
+    "webpack-dev-server": "2.2.0"
+  }
+}

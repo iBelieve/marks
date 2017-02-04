@@ -1,0 +1,10 @@
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "electron": "1.4"
+      },
+      "useBuiltIns": true
+    }]
+  ]
+}
