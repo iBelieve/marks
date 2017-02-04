@@ -9,6 +9,7 @@
   "scripts": {
     "start": "nf start",
     "dev": "webpack-dev-server",
+    "lint": "eslint src/ --fix",
     "electron": "electron .",
     "prebuild": "rimraf dist/",
     "build": "webpack --progress"
@@ -21,12 +22,23 @@
     "@webpack-blocks/webpack2": "^0.4.0",
     "autoprefixer": "^6.7.2",
     "babel-core": "^6.22.1",
+    "babel-eslint": "^7.1.1",
     "babel-preset-env": "^1.1.8",
+    "babel-preset-react": "^6.22.0",
     "electron": "^1.4.15",
+    "eslint": "^3.15.0",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0",
     "foreman": "^2.0.0",
     "html-webpack-plugin": "^2.28.0",
     "rimraf": "^2.5.4",
     "webpack": "^2.2.0",
     "webpack-dev-server": "2.2.0"
+  },
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
   }
 }

@@ -7,17 +7,17 @@ function isVendor(module, count) {
 }
 
 exports.basePlugins = [
-    new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor',
-        minChunks: isVendor,
-    })
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'vendor',
+    minChunks: isVendor,
+  })
 ]
 
 exports.developmentPlugins = [
-    new HtmlWebpackPlugin({
-        template: './public/index.html',
-        inject: true
-    })
+  new HtmlWebpackPlugin({
+    template: './public/index.html',
+    inject: true
+  })
 ]
 
 exports.productionPlugins = [

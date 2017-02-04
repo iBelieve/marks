@@ -15,9 +15,12 @@ module.exports = createConfig([
     autoprefixer({ browsers: ['last 2 versions'] })
   ]),
   addPlugins(plugins.basePlugins),
+  defineConstants({
+    'process.env.NODE_ENV': process.env.NODE_ENV || 'development'
+  }),
   env('development', [
     setOutput('./dist/[name].bundle.js'),
-    devServer({ contentBase: './public', port: parseInt(process.env.PORT) }),
+    devServer({ contentBase: './public', port: parseInt(process.env.PORT, 10) }),
     sourceMaps(),
     addPlugins(plugins.developmentPlugins)
   ]),
