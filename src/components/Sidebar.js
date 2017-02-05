@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   background: ${colors.sidebar};
   width: 200px;
   height: 100%;
+  flex-shrink: 0;
 `
 
 const Sidebar = () => (

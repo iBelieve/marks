@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   border-right: 1px solid ${props => props.theme.divider};
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
 `
 
 const NotesList = ({ notes, selectedId, onNoteClick, addNote }) => (

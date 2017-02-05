@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Sidebar } from './components'
-import { NotesList } from './containers'
+import { NoteEditor, NotesList } from './containers'
 import { DefaultTheme } from './styles'
 
 const Wrapper = styled.div`
@@ -15,6 +15,7 @@ export default function App() {
       <Wrapper>
         <Sidebar/>
         <NotesList/>
+        <NoteEditor/>
       </Wrapper>
     </DefaultTheme>
   )

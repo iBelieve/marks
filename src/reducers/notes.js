@@ -1,4 +1,4 @@
-import { ADD_NOTE, SELECT_NOTE } from '../actions/notes'
+import { ADD_NOTE, SELECT_NOTE, EDIT_SELECTED_NOTE } from '../actions/notes'
 
 const initialState = {
   nextId: 1,
@@ -17,7 +17,8 @@ export default function(state = initialState, action) {
           ...state.byId,
           [state.nextId]: {
             title: '',
-            text: ''
+            text: '',
+            editorState: null
           }
         },
         allIds: [...state.allIds, state.nextId],
@@ -27,6 +28,18 @@ export default function(state = initialState, action) {
       return {
         ...state,
         selectedId: action.id
+      }
+    case EDIT_SELECTED_NOTE:
+      return {
+        ...state,
+        byId: {
+          ...state.byId,
+          [state.selectedId]: {
+            ...state.byId[state.selectedId],
+            text: action.text,
+            editorState: action.editorState
+          }
+        }
       }
     default:
       return state

@@ -45,6 +45,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "color": "^1.0.3",
+    "draft-js": "^0.10.0",
     "mdi": "^1.8.36",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
