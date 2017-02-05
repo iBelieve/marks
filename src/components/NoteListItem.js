@@ -5,11 +5,17 @@ import { colors } from '../styles'
 
 const StyledListItem = styled(ListItem)`
   padding: 0.8rem 1.5rem;
+  position: relative;
 
   ${props => props.selected && css`
-    padding-left: 1.2rem;
-    border-left: 0.3rem solid ${colors.primary};
     background: white;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; top: 0; bottom: 0;
+      border-left: 0.3rem solid ${colors.primary};
+    }
   `}
 `
 
