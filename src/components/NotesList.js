@@ -6,22 +6,22 @@ import ListView from './ListView'
 import NoteListItem from './NoteListItem'
 
 const Wrapper = styled.div`
-  width: 250px;
+  width: 280px;
   height: 100%;
   border-right: 1px solid ${props => props.theme.divider};
   display: flex;
   flex-direction: column;
 `
 
-const NotesList = ({ notes, selectedNoteId, onNoteClick }) => (
+const NotesList = ({ notes, selectedId, onNoteClick, addNote }) => (
   <Wrapper>
-    <Toolbar border actions={<ToolButton icon="pencil"/>}/>
+    <Toolbar border actions={<ToolButton icon="pencil" onClick={addNote}/>}/>
     <ListView>
       {notes.map(note => (
         <NoteListItem
           key={note.id}
           note={note}
-          selected={selectedNoteId === note.id}
+          selected={selectedId === note.id}
           onClick={onNoteClick}
         />
       ))}
@@ -32,14 +32,15 @@ const NotesList = ({ notes, selectedNoteId, onNoteClick }) => (
 NotesList.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
-    excerpt: PropTypes.string.isRequired
+    text: PropTypes.string.isRequired
   })).isRequired,
-  selectedNoteId: PropTypes.string,
-  onNoteClick: PropTypes.func.isRequired
+  selectedId: PropTypes.number,
+  onNoteClick: PropTypes.func.isRequired,
+  addNote: PropTypes.func.isRequired
 }
 
 NotesList.defaultProps = {
-  selectedNoteId: null
+  selectedId: null
 }
 
 export default NotesList

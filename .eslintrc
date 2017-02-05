@@ -19,3 +19,5 @@ rules:
   comma-dangle: [error, never]
   semi: [error, never]
   no-else-return: off
+  space-before-function-paren: off
+  no-confusing-arrow: off
