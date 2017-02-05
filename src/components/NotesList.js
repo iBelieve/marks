@@ -32,7 +32,6 @@ const NotesList = ({ notes, selectedId, onNoteClick, addNote }) => (
 
 NotesList.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired
   })).isRequired,
   selectedId: PropTypes.number,

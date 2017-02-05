@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
 import ListItem from './ListItem'
 import { colors } from '../styles'
+import { getNoteTitleAndExcerpt } from '../utils'
 
 const StyledListItem = styled(ListItem)`
   padding: 0.8rem 1.5rem;
@@ -40,20 +41,23 @@ const Excerpt = styled.p`
   -webkit-box-orient: vertical;
 `
 
-const NoteListItem = ({ note, selected, onClick }) => (
-  <StyledListItem divider selected={selected} onClick={() => onClick(note.id)}>
-    <Title placeholder={!note.title}>
-      {note.title || 'A new note'}
-    </Title>
-    <Excerpt placeholder={!note.text}>
-      {note.text || 'Your next great idea starts here'}
-    </Excerpt>
-  </StyledListItem>
-)
+export default function NoteListItem({ note, selected, onClick }) {
+  const { title, excerpt } = getNoteTitleAndExcerpt(note.text)
+
+  return (
+    <StyledListItem divider selected={selected} onClick={() => onClick(note.id)}>
+      <Title placeholder={!title}>
+        {title || 'A new note'}
+      </Title>
+      <Excerpt placeholder={!excerpt}>
+        {excerpt || 'Your next great idea starts here'}
+      </Excerpt>
+    </StyledListItem>
+  )
+}
 
 NoteListItem.propTypes = {
   note: PropTypes.shape({
-    title: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired
   }).isRequired,
   selected: PropTypes.bool,
@@ -64,5 +68,3 @@ NoteListItem.defaultProps = {
   selected: false,
   onClick: undefined
 }
-
-export default NoteListItem
