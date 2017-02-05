@@ -1,10 +1,11 @@
 import React, { PropTypes } from 'react'
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider, injectGlobal } from 'styled-components'
 import color from 'color'
 
 export const colors = {
   primary: '#298FF3',
-  sidebar: '#22252A'
+  sidebar: '#22252A',
+  background: '#FAFAFA'
 }
 
 export const lightTheme = {
@@ -26,8 +27,23 @@ export const darkTheme = {
 }
 
 export const fonts = {
-  button: 'sans-serif'
+  default: `-apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif`
 }
+
+// eslint-disable-next-line no-unused-expressions
+injectGlobal`
+  html, body, #app {
+    margin: 0;
+    height: 100%;
+    color: ${lightTheme.text};
+    background-color: ${colors.background};
+    font-family: ${fonts.default};
+    font-size: 14px;
+  }
+`
 
 export const DefaultTheme = ({ children }) => (
   <ThemeProvider theme={lightTheme}>

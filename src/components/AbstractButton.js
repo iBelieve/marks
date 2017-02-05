@@ -18,7 +18,6 @@ const styles = ({ disabled }) => css`
   transition: all 0.25;
 
   font-size: 1rem;
-  font-family: ${fonts.button};
 
   color: ${props => props.theme.text};
   background: transparent;

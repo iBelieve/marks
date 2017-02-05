@@ -3,7 +3,6 @@ import { render } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import 'mdi/css/materialdesignicons.min.css'
 import App from './App'
-import './global.css'
 
 const root = document.getElementById('app')
 

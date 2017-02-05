@@ -4,10 +4,10 @@ import ListItem from './ListItem'
 import { colors } from '../styles'
 
 const StyledListItem = styled(ListItem)`
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 1.5rem;
 
   ${props => props.selected && css`
-    padding-left: 0.7rem;
+    padding-left: 1.2rem;
     border-left: 0.3rem solid ${colors.primary};
     background: white;
   `}
@@ -24,8 +24,8 @@ const Excerpt = styled.p`
   color: ${props => props.theme.subtext}
 `
 
-const NoteListItem = ({ note, selected }) => (
-  <StyledListItem divider selected={selected}>
+const NoteListItem = ({ note, selected, onClick }) => (
+  <StyledListItem divider selected={selected} onClick={() => onClick(note)}>
     <Title>{note.title}</Title>
     <Excerpt>{note.excerpt}</Excerpt>
   </StyledListItem>
@@ -36,11 +36,13 @@ NoteListItem.propTypes = {
     title: PropTypes.string.isRequired,
     excerpt: PropTypes.string.isRequired
   }).isRequired,
-  selected: PropTypes.bool
+  selected: PropTypes.bool,
+  onClick: PropTypes.func
 }
 
 NoteListItem.defaultProps = {
-  selected: false
+  selected: false,
+  onClick: undefined
 }
 
 export default NoteListItem

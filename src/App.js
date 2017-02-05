@@ -9,18 +9,43 @@ const Wrapper = styled.div`
 `
 
 const notes = [
-  { title: 'Hello, world', excerpt: 'This is the excerpt of my note, and it should wrap nicely to another line.' },
-  { title: 'Tutorial', excerpt: 'Getting started with this cool new app.' }
+  { id: 1,
+    title: 'Hello, world',
+    excerpt: 'This is the excerpt of my note, and it should wrap nicely to another line.' },
+  { id: 2,
+    title: 'Tutorial',
+    excerpt: 'Getting started with this cool new app.' }
 ]
 
-const App = () => (
-  <DefaultTheme>
-    <Wrapper>
-      <Sidebar/>
-      <NotesList notes={notes}/>
-      {/* <Route exact path="/" component={Home}/> */}
-    </Wrapper>
-  </DefaultTheme>
-)
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      selectedNoteId: null
+    }
+  }
+
+  selectNote = (note) => {
+    this.setState({ selectedNoteId: note.id })
+  }
+
+  render() {
+    const { selectedNoteId } = this.state
+
+    return (
+      <DefaultTheme>
+        <Wrapper>
+          <Sidebar/>
+          <NotesList
+            notes={notes}
+            selectedNoteId={selectedNoteId}
+            onNoteClick={this.selectNote}
+          />
+        </Wrapper>
+      </DefaultTheme>
+    )
+  }
+}
 
 export default App

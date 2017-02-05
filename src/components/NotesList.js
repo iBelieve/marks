@@ -13,15 +13,16 @@ const Wrapper = styled.div`
   flex-direction: column;
 `
 
-const NotesList = ({ notes }) => (
+const NotesList = ({ notes, selectedNoteId, onNoteClick }) => (
   <Wrapper>
     <Toolbar border actions={<ToolButton icon="pencil"/>}/>
     <ListView>
-      {notes.map((note, index) => (
+      {notes.map(note => (
         <NoteListItem
-          key={note.title}
+          key={note.id}
           note={note}
-          selected={index === 0}
+          selected={selectedNoteId === note.id}
+          onClick={onNoteClick}
         />
       ))}
     </ListView>
@@ -32,7 +33,13 @@ NotesList.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     excerpt: PropTypes.string.isRequired
-  })).isRequired
+  })).isRequired,
+  selectedNoteId: PropTypes.string,
+  onNoteClick: PropTypes.func.isRequired
+}
+
+NotesList.defaultProps = {
+  selectedNoteId: null
 }
 
 export default NotesList
