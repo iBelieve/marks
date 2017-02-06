@@ -16,6 +16,14 @@ export default class MarkdownEditor extends React.Component {
     editorState: EditorState.createEmpty()
   }
 
+  componentWillMount() {
+    if (this.props.text) {
+      this.setState({
+        editorState: EditorState.createWithContent(ContentState.createFromText(this.props.text))
+      })
+    }
+  }
+
   componentWillReceiveProps({ text, editorState }) {
     if (editorState != null && editorState !== this.state.editorState) {
       this.setState({ editorState })
